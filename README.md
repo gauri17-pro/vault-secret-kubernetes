@@ -28,6 +28,16 @@ kubectl create secret generic vault-token \
   --from-literal=token=root
 ```
 
-2. 
+2. Add secrets to the vault
+```
+vault secrets enable -path=apps kv-v2
+```
 
+```
+vault kv put -mount=apps my-app DB_USERNAME=appuser DB_PASSWORD=apppassword
+vault kv put -mount=apps docker-creds docker_username=gauris17 docker_password=Password@123
+```
 
+```
+vault kv get apps/my-app
+```

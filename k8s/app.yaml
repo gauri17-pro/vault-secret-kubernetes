@@ -13,9 +13,11 @@ spec:
       labels:
         app: vault-db-app
     spec:
+      imagePullSecrets:
+        - name: docker-creds
       containers:
         - name: vault-db-app
-          image: gauri17-pro/vault-db-app:latest
+          image: gauris17/vault-db-app:latest
           imagePullPolicy: IfNotPresent
           ports:
             - containerPort: 3000
